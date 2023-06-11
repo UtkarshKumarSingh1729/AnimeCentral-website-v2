@@ -24,7 +24,8 @@ JOBS = [
   {
     'id': 4,
     'title': 'Frontend Developer',
-    'location': 'Delhi, India'
+    'location': 'Delhi, India',
+    'salary': 'Rs. 15,00,000'
   },
 ]
 
