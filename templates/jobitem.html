@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body {
+        background-color: #000;
+      }
+      a, h2, p, li, h4, .w {
+        color: white;
+      }
+      .job-card {
+        background-color: #222;
+        border: none;
+        margin-bottom: 20px;
+      }
+      .job-card .card-body {
+        padding: 20px;
+      }
+      .job-card h4 {
+        margin-bottom: 10px;
+      }
+      .job-card .w {
+        margin-bottom: 10px;
+      }
+      .apply-button {
+        text-align: right;
+      }
+      .apply-button .btn-primary {
+        background-color: #ff5252;
+        border-color: #ff5252;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <div class="card job-card">
+            <div class="card-body">
+              <h4>{{job['title']}}</h4>
+              <div class="w"><b>Location: </b>{{job['location']}}</div>
+              {% if 'salary' in job %}
+              <div class="w">
+                <b>Salary: </b>{{job['salary']}}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="col-3 apply-button">
+          <a href="#" class="btn btn-primary">Apply Now</a>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>

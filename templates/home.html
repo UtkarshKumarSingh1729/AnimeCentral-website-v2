@@ -6,6 +6,7 @@
     <title>Anime Central</title>
     <!-- Add Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+
   <style>
 
       body {
@@ -41,7 +42,7 @@
         padding-bottom:20px;
         animation: backgroundAnimation 10s infinite;
       }
-    a ,h2 ,p,li{
+    a ,h2 ,p,li, h4, .w{
       color:white;
     }
 
@@ -50,7 +51,7 @@
 <body>
     <header class="bg-dark text-white py-3">
         <div class="container">
-            <h1 class="text-center">Anime Central</h1>
+            <h1 class="text-center">{{company_name}}</h1>
         </div>
     </header>
 
@@ -68,20 +69,21 @@
         </nav>
 
         <main class="py-4">
-            <h2 class="text-center" style="font-family:papyrus;">Welcome to Anime Central</h2>
+            <h2 class="text-center" style="font-family:papyrus;">Welcome to {{company_name}}</h2>
             <p>Welcome to Anime Central, your ultimate destination for an immersive anime gallery experience! Step into a world where the captivating artistry of anime comes to life. Explore a vast collection of stunning artwork, intricate character designs, and unforgettable moments from your favorite anime series. From breathtaking landscapes of fantastical realms to pulse-pounding battles between mighty warriors, our gallery showcases the diverse and enchanting world of anime that has captured the hearts of fans worldwide. Whether you're a devoted aficionado or a curious newcomer, prepare to be captivated by the vibrant colors, intricate details, and expressive characters that bring these captivating stories to life. Join us on a visual journey through the boundless realm of anime, where imagination knows no bounds. Experience Anime Central and let your passion for this beloved art form soar to new heights!</p>
         </main>
 
         <div class="open-position">
             <h2 class="text-center">Open Positions</h2>
             <p>We have exciting career opportunities available:</p>
-            <ul>
-                <li>Software Developer</li>
-                <li>Graphic Designer</li>
-                <li>Marketing Specialist</li>
-                <li>Customer Support Representative</li>
-            </ul>
-            <a href="#" class="btn btn-primary">Learn More</a>
+<div>{% for job in jobs %}
+      {% include 'jobitem.html'%}
+    {% endfor %}
+
+</div>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary text-center">Contact Us</a>
+        </div>
         </div>
     </div>
 
