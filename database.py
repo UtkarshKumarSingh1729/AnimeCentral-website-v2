@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, text
 
-db_username = 'h5y1pw624lv3adkru92m'
-db_password = 'pscale_pw_UbdxKfrjEa9e1USjCbCmto2RFVMDkI3RIyvq43Whsk0'
+db_username = '8mri0dmfktl4eyr6iqap'
+db_password = 'pscale_pw_76cYAVeRWEJaZv2pZgM35AtqTuPQ2m2YYzMJDhRgWAU'
 db_hostname = 'aws.connect.psdb.cloud'
 db_port = '3306'
 db_name = 'animecentral'
@@ -18,7 +18,7 @@ engine = create_engine(db_url,
 
 def load_jobs_from_db():
   with engine.connect() as conn:
-    result = conn.execute(text("select * from jobs"))
+    result = conn.execute(text("SELECT * FROM jobs"))
     jobs = result.fetchall()
     print(jobs)
     return jobs
@@ -27,7 +27,7 @@ def load_jobs_from_db():
 def load_job_from_db(id):
   with engine.connect() as conn:
     result = conn.execute(text("SELECT * FROM jobs WHERE id = :val"), val=id)
-    rows = result.all()
+    rows = result.fetchall()
     if len(rows) == 0:
       return None
     else:
