@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, text
 
-db_username = '0hx8m575mujswvaymxlx'
-db_password = 'pscale_pw_Nb0JqEqSVhUWgeRb9ikfYjHCZGovACwfbs6aVb5qDTg'
+db_username = 'h5y1pw624lv3adkru92m'
+db_password = 'pscale_pw_UbdxKfrjEa9e1USjCbCmto2RFVMDkI3RIyvq43Whsk0'
 db_hostname = 'aws.connect.psdb.cloud'
 db_port = '3306'
 db_name = 'animecentral'
@@ -24,4 +24,27 @@ def load_jobs_from_db():
     return jobs
 
 
-load_jobs_from_db()
+def load_job_from_db(id):
+  with engine.connect() as conn:
+    result = conn.execute(text("SELECT * FROM jobs WHERE id = :val"), val=id)
+    rows = result.all()
+    if len(rows) == 0:
+      return None
+    else:
+      return dict(rows[0])
+
+
+def add_application_to_db(job_id, data):
+  with engine.connect() as conn:
+    query = text(
+      "INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience, resume_url) VALUES (:job_id, :full_name, :email, :linkedin_url, :education, :work_experience, :resume_url)"
+    )
+
+    conn.execute(query,
+                 job_id=job_id,
+                 full_name=data['full_name'],
+                 email=data['email'],
+                 linkedin_url=data['linkedin_url'],
+                 education=data['education'],
+                 work_experience=data['work_experience'],
+                 resume_url=data['resume_url'])
