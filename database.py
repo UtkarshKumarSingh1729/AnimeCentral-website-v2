@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, text
 
-db_username = '8mri0dmfktl4eyr6iqap'
-db_password = 'pscale_pw_76cYAVeRWEJaZv2pZgM35AtqTuPQ2m2YYzMJDhRgWAU'
+db_username = '4ep0e0grb6j05bpskr66'
+db_password = 'pscale_pw_czDaZ17Ozq3C4dOLkEfaYKt5jVGqh9FRsKiQddR829S'
 db_hostname = 'aws.connect.psdb.cloud'
 db_port = '3306'
 db_name = 'animecentral'
